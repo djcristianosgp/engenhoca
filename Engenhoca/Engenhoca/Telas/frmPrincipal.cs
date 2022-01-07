@@ -63,12 +63,48 @@ namespace Engenhoca.Telas
         {
             try
             {
-                Process.Start("https://www.instagram.com/djcristianosgp/");
+                ClsExecuta.FU_ExecutaCMD("https://www.instagram.com/djcristianosgp");
             }
             catch (Exception ex)
             {
                 ClsLog.FU_Escreve_Log("toolStripStatusLabel1_Click", ex.Message);
             }
+        }
+
+        private void miPastasImagens_Click(object sender, EventArgs e)
+        {
+            ClsExecuta.FU_ExecutaCMD(ClsUteis.sPastaImagens);
+        }
+
+        private void miPastasLogs_Click(object sender, EventArgs e)
+        {
+            ClsExecuta.FU_ExecutaCMD(ClsUteis.sPastaLog);
+        }
+
+        private void miPastasProjetos_Click(object sender, EventArgs e)
+        {
+            ClsExecuta.FU_ExecutaCMD(ClsUteis.sPataProjetos);
+        }
+
+        private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2) miExecArquivoPAT.PerformClick();
+            if (e.KeyCode == Keys.F12) miPastasProjetos.PerformClick();
+        }
+
+        private void miCascata_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void miVertical_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void miHorizontal_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
         }
     }
 }

@@ -79,12 +79,17 @@ namespace Engenhoca.Telas
         {
             try
             {
-                Process.Start(ClsUteis.sPastaBackup);
+                ClsExecuta.FU_ExecutaCMD(ClsUteis.sPastaBackup);
             }
             catch (Exception ex)
             {
                 ClsLog.FU_Escreve_Log("lblLocalBackup_MouseDoubleClick", ex.Message);
             }
+        }
+
+        private void lblLocalBackup_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

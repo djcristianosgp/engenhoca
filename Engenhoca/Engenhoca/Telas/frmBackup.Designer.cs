@@ -46,6 +46,7 @@
             this.lblLocalBackup.TabIndex = 2;
             this.lblLocalBackup.Text = "Largura:";
             this.lblLocalBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLocalBackup.Click += new System.EventHandler(this.lblLocalBackup_Click);
             this.lblLocalBackup.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblLocalBackup_MouseDoubleClick);
             // 
             // pbStatus

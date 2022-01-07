@@ -133,5 +133,10 @@ namespace Engenhoca.Telas
                 }
             }
         }
+
+        private void txtNomeArquivo_TextChanged(object sender, EventArgs e)
+        {
+            this.Text = "Arquivo PAT | " + txtNomeArquivo.Text;
+        }
     }
 }
