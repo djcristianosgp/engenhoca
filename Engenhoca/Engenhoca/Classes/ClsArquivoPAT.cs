@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace Engenhoca.Classes
+﻿namespace Engenhoca.Classes
 {
     internal class ClsArquivoPAT
     {
-        public static void FUEscreveArquivo(int iLargura, int iAltura, string sNomeArquivo, string sNome)
+        public static void FUEscreveArquivo(string sNomeArquivo, string sTexto)
         {
-            StreamWriter swArquivo = new StreamWriter(sNomeArquivo+".PAT");
-            swArquivo.WriteLine(";%UNITS=MM ");
-            swArquivo.WriteLine("*"+sNome + " " + iLargura);
-            swArquivo.WriteLine(";%TYPE=MODEL ");
-            swArquivo.WriteLine("0, 0,0, 0,");
-        }
-
-        private string CalculoLargura(int ilargura)
-        {
-            string sRetorno = "";
-            sRetorno = (ilargura / 2).ToString();
-            return sRetorno;
+            try
+            {
+                StreamWriter swArquivo = new StreamWriter(ClsUteis.sPataProjetos + sNomeArquivo + ".PAT");
+                swArquivo.WriteLine(sTexto);
+                swArquivo.Close();
+            }
+            catch (Exception ex)
+            {
+                ClsLog.FU_Escreve_Log("FUEscreveArquivo", ex.Message);
+            }
         }
     }
 }
