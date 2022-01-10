@@ -25,10 +25,53 @@ namespace Engenhoca.Telas
                     else ctlMDI.BackgroundImage = this.BackgroundImage;
                 }
                 ctlMDI.BackgroundImageLayout = ImageLayout.Stretch;
+                AbreJanelas();
             }
             catch (Exception ex)
             {
                 ClsLog.FU_Escreve_Log("frmPrincipal_Load", ex.Message);
+            }
+        }
+
+        private void AbreJanelas()
+        {
+            if (File.Exists(ClsUteis.sConfiJanela))
+            {
+                bool jbAtivo = false;
+                int jiJanelas = 0;
+                string jsModo = "NENHUM";
+                StreamReader srArquivoConfig = new StreamReader(ClsUteis.sConfiJanela);
+                String linha;
+                // Lê linha por linha
+                while ((linha = srArquivoConfig.ReadLine()) != null)
+                {
+                    if (linha.Split('=')[0].ToString() == "ATIVO") jbAtivo = Convert.ToBoolean(linha.Split('=')[1].ToString());
+                    if (linha.Split('=')[0].ToString() == "JANELAS") jiJanelas = Convert.ToInt32(linha.Split('=')[1].ToString());
+                    if (linha.Split('=')[0].ToString() == "MODO") jsModo = linha.Split('=')[1].ToString();
+                }
+                srArquivoConfig.Close();
+                if (jbAtivo)
+                {
+                    if (jiJanelas > 0)
+                    {
+                        for (int iContador = 0; iContador < jiJanelas; iContador++)
+                        {
+                            miExecArquivoPAT.PerformClick();
+                        }
+                        if (jsModo == "CASCATA") miCascata.PerformClick();
+                        if (jsModo == "VERTICAL") miVertical.PerformClick();
+                        if (jsModo == "HORIZONTAL") miHorizontal.PerformClick();
+                    }
+                }
+            }
+            else
+            {
+                StreamWriter sArquivo = new StreamWriter(ClsUteis.sConfiJanela);
+                sArquivo.WriteLine("[CONFIGURAÇÕES JANELA]");
+                sArquivo.WriteLine("ATIVO=false");
+                sArquivo.WriteLine("JANELAS=0");
+                sArquivo.WriteLine("MODO=NENHUM");
+                sArquivo.Close();
             }
         }
 
@@ -105,6 +148,13 @@ namespace Engenhoca.Telas
         private void miHorizontal_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void miJanelaConfiguracao_Click(object sender, EventArgs e)
+        {
+            frmConfigJanela FormConfiJanela = new frmConfigJanela();
+            FormConfiJanela.MdiParent = this;
+            FormConfiJanela.Show();
         }
     }
 }

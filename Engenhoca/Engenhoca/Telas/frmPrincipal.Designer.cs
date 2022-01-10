@@ -48,6 +48,7 @@
             this.lblVersao = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEstacao = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.miJanelaConfiguracao = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -151,6 +152,7 @@
             this.miCascata,
             this.miVertical,
             this.miHorizontal,
+            this.miJanelaConfiguracao,
             this.toolStripSeparator1});
             this.muJanelas.Image = ((System.Drawing.Image)(resources.GetObject("muJanelas.Image")));
             this.muJanelas.Name = "muJanelas";
@@ -160,28 +162,28 @@
             // miCascata
             // 
             this.miCascata.Name = "miCascata";
-            this.miCascata.Size = new System.Drawing.Size(141, 24);
+            this.miCascata.Size = new System.Drawing.Size(180, 24);
             this.miCascata.Text = "Cascata";
             this.miCascata.Click += new System.EventHandler(this.miCascata_Click);
             // 
             // miVertical
             // 
             this.miVertical.Name = "miVertical";
-            this.miVertical.Size = new System.Drawing.Size(141, 24);
+            this.miVertical.Size = new System.Drawing.Size(180, 24);
             this.miVertical.Text = "Vertical";
             this.miVertical.Click += new System.EventHandler(this.miVertical_Click);
             // 
             // miHorizontal
             // 
             this.miHorizontal.Name = "miHorizontal";
-            this.miHorizontal.Size = new System.Drawing.Size(141, 24);
+            this.miHorizontal.Size = new System.Drawing.Size(180, 24);
             this.miHorizontal.Text = "Horizontal";
             this.miHorizontal.Click += new System.EventHandler(this.miHorizontal_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // statusStrip1
             // 
@@ -215,6 +217,13 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Cristiano Grobério";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
+            // miJanelaConfiguracao
+            // 
+            this.miJanelaConfiguracao.Name = "miJanelaConfiguracao";
+            this.miJanelaConfiguracao.Size = new System.Drawing.Size(180, 24);
+            this.miJanelaConfiguracao.Text = "Configuração";
+            this.miJanelaConfiguracao.Click += new System.EventHandler(this.miJanelaConfiguracao_Click);
             // 
             // frmPrincipal
             // 
@@ -265,5 +274,6 @@
         private ToolStripMenuItem miVertical;
         private ToolStripMenuItem miHorizontal;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem miJanelaConfiguracao;
     }
 }

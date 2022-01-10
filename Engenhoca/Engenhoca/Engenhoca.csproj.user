@@ -4,6 +4,9 @@
     <Compile Update="Telas\frmBackup.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Telas\frmConfigJanela.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Telas\frmExecArquivoPAT.cs">
       <SubType>Form</SubType>
     </Compile>

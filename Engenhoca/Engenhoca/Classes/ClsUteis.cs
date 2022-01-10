@@ -19,6 +19,7 @@
 
         public static string sArquivoLog = sPastaLog + "Engenhoca" + DateTime.Now.ToString("yyyyMM") + ".Log";
         public static string sArquivoBackup = "Engenhoca_Backup_" + DateTime.Now.ToString("ddd") + ".zip";
+        public static string sConfiJanela = sPastaPadrao + "ConfigJanela.dll";
 
         public static List<string> lListaArquivos = new List<string>()
         {
